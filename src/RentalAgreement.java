@@ -92,7 +92,7 @@ public class RentalAgreement {
     }
 
     private String formatDollar(int value){
-        return String.format("$"+value/100+".%02d",value%100);
+        return String.format("$%,d",value/100)+String.format(".%02d",value%100);
     }
 
     /**
