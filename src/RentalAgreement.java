@@ -12,12 +12,12 @@ public class RentalAgreement {
     private int rentalDays;
     private LocalDate checkoutDate;
     private LocalDate dueDate;
-    private int dailyRentalCharge;
+    private int dailyRentalCharge; //Using int to avoid any error caused by floating point arithmetic. Price is in pennies.
     private int chargeDays;
-    private int preDiscountCharge;
+    private int preDiscountCharge; //Using int to avoid any error caused by floating point arithmetic. Price is in pennies.
     private int discountPercent;
-    private int discountAmount;
-    private int finalCharge;
+    private int discountAmount; //Using int to avoid any error caused by floating point arithmetic. Price is in pennies.
+    private int finalCharge; //Using int to avoid any error caused by floating point arithmetic. Price is in pennies.
 
     /**
      * Generates a rental agreement based on tool code, days rented, discount percent, and checkout date
@@ -82,7 +82,7 @@ public class RentalAgreement {
         System.out.println("Tool Brand:             "+toolBrand);
         System.out.println("Number of days rented:  "+rentalDays);
         System.out.println("Checkout date:          "+checkoutDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
-        System.out.println("Due date:               "+dueDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        System.out.println("Due date:               "+dueDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"))); //Formatting date with full year for clarity when doing absurdity tests (100+ year rentals)
         System.out.println("Daily rental charge:    "+formatDollar(dailyRentalCharge));
         System.out.println("Number of days charged: "+chargeDays);
         System.out.println("Pre-discount charge:    "+formatDollar(preDiscountCharge));

@@ -3,10 +3,7 @@ import exceptions.InvalidToolTypeException;
 public class Tool {
     private String toolType;
 
-    /**
-     * Using int to avoid any error caused by floating point arithmetic. Price is in pennies.
-     */
-    private int dailyCharge;
+    private int dailyCharge; //Using int to avoid any error caused by floating point arithmetic. Price is in pennies.
 
     private boolean weekendCharge;
     private boolean holidayCharge;

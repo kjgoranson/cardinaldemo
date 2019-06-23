@@ -1,30 +1,7 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class DaysCalculator {
-
-    public static Holiday[] holidays = {
-            new Holiday(year -> {//4th of July
-                LocalDate defaultDay = LocalDate.parse("7/4/"+year, DateTimeFormatter.ofPattern("M/d/yyyy"));
-                if(defaultDay.getDayOfWeek()==DayOfWeek.SATURDAY){
-                    return defaultDay.minusDays(1);
-                }
-                else if(defaultDay.getDayOfWeek()==DayOfWeek.SUNDAY){
-                    return defaultDay.plusDays(1);
-                }
-                else{
-                    return defaultDay;
-                }
-            }), new Holiday(year -> {//Labor Day
-                LocalDate defaultDay = LocalDate.parse("9/1/"+year, DateTimeFormatter.ofPattern("M/d/yyyy")); //earliest possible day
-                if(defaultDay.getDayOfWeek()==DayOfWeek.MONDAY){
-                    return defaultDay;
-                }
-                else{
-                    return defaultDay.plusDays(8-defaultDay.getDayOfWeek().getValue()); //add days to get to the next Monday
-                }
-            })};
 
     /**
      * Determines number of days that are weekend days given a start date and a number of days to count after the start date
@@ -73,7 +50,7 @@ public class DaysCalculator {
      */
     public static int getHolidayCount(LocalDate start, int numberOfDays){
         int count = 0;
-        for(Holiday holiday:holidays){
+        for(Holiday holiday:Holiday.holidays){
             count+=holiday.countInRange(start,numberOfDays);
         }
         return count;

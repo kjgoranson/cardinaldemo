@@ -4,10 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the rental agreement checkout!");
-        Scanner in = new Scanner(System.in);
 
         while(true){
             try {
+                Scanner in = new Scanner(System.in);
                 System.out.println("Please enter tool code:");
                 String code = in.next();
                 System.out.println("Please enter checkout date in the format MM/dd/yy:");
